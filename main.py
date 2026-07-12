@@ -1,12 +1,49 @@
-print("Welcome to Student Management System")
+import json
+
+
+print("=" * 50)
+print("     WELCOME TO STUDENT MANAGEMENT SYSTEM")
+print("=" * 50)
 students = []
 
+
+
+
+def load_students():
+    global students
+
+    try:
+        with open("students.json", "r") as file:
+            students = json.load(file)
+    except FileNotFoundError:
+        students = []
+
+
+
+
+
+def save_students():
+
+    with open("students.json", "w") as file:
+        json.dump(students, file, indent=4)
+
+
+
+
+
 def add_student():
+
     print("\n----- Add Student -----")
 
     name = input("Enter student name: ")
     roll = input("Enter roll number: ")
     course = input("Enter course: ")
+
+    # Check if roll number already exists
+    for student in students:
+        if student["roll"] == roll:
+            print("\n❌ Roll number already exists!\n")
+            return
 
     student = {
         "name": name,
@@ -15,8 +52,13 @@ def add_student():
     }
 
     students.append(student)
+    save_students()
 
     print("\n✅ Student added successfully!\n")
+
+
+
+
 
 
 def view_students():
@@ -35,6 +77,11 @@ def view_students():
 
     print()
 
+
+
+
+
+
 def search_student():
     print("\n----- Search Student -----")
     roll = input("Enter roll no. to search: ")
@@ -50,6 +97,9 @@ def search_student():
     print("\n❌ Student not found.\n")
 
 
+
+
+
 def delete_student():
 
     print("\n----- Delete Student -----")
@@ -59,10 +109,50 @@ def delete_student():
     for student in students:
         if student["roll"] == roll:
             students.remove(student)
+            save_students()
             print("\n✅ Student deleted successfully!\n")
             return
 
     print("\n❌ Student not found.\n")
+
+
+
+
+
+
+def update_student():
+
+    print("\n----- Update Student -----")
+
+    roll = input("Enter roll number to update: ")
+
+    for student in students:
+
+        if student["roll"] == roll:
+
+            print("\nCurrent Details")
+            print("----------------")
+            print(f"Name   : {student['name']}")
+            print(f"Course : {student['course']}")
+
+            new_name = input("\nEnter new name: ")
+            new_course = input("Enter new course: ")
+
+            student["name"] = new_name
+            student["course"] = new_course
+
+            save_students()
+
+            print("\n✅ Student updated successfully!\n")
+            return
+
+    print("\n❌ Student not found.\n")
+
+load_students()
+
+
+
+
 while True:
 
     print("========== Student Management System ==========")
@@ -70,7 +160,8 @@ while True:
     print("2. View Students")
     print("3. Search Student")
     print("4. Delete Student")
-    print("5. Exit")
+    print("5. Update Student")
+    print("6. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -87,6 +178,9 @@ while True:
         delete_student()
 
     elif choice == "5":
+        update_student()
+
+    elif choice == "6":
         print("Thank you for using the system!")
         break
     else:
