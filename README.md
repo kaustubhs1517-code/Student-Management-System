@@ -7,7 +7,9 @@ A simple Python project created as my first GitHub project.
 - Add students
 - View students
 - Search students
+- Update students
 - Delete students
+- Data saved permanently using JSON
 
 ## Technologies Used
 
