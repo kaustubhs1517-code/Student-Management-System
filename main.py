@@ -38,9 +38,37 @@ def add_student():
 
     print("\n----- Add Student -----")
 
-    name = input("Enter student name: ")
-    roll = input("Enter roll number: ")
-    course = input("Enter course: ")
+    while True:
+        name = input("Enter student name: ").strip()
+        if name == "":
+            print("❌ Name cannot be empty.")
+
+        elif not name.replace(" ", "").isalpha():
+            print("❌ Name should contain only letters and spaces.")
+
+        else:
+            break
+
+
+    while True:
+        roll = input("Enter roll number: ").strip()
+        if roll == "":
+            print("❌ Roll number cannot be empty.")
+
+        elif not roll.isdigit():
+            print("❌ Roll number must contain only digits.")
+
+        else:
+            break
+    
+    
+    while True:
+        course = input("Enter course: ").strip()
+        if course == "":
+            print("❌ Course cannot be empty.")
+
+        else:
+            break
 
     # Check if roll number already exists
     for student in students:

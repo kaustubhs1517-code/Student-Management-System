@@ -8,5 +8,15 @@
         "name": "suryansh singh",
         "roll": "11",
         "course": "btech"
+    },
+    {
+        "name": "\"\"",
+        "roll": "& C:/Users/Meenu/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Meenu/OneDrive/Desktop/Student-Management-System/main.py",
+        "course": "b"
+    },
+    {
+        "name": "kauatubh srivastav",
+        "roll": "12",
+        "course": "11"
     }
 ]
