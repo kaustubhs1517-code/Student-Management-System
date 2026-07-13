@@ -1,19 +1,28 @@
 # Student Management System
 
-A simple Python project created as my first GitHub project.
+A beginner-friendly Student Management System built using Python.
+The project stores student data permanently using a JSON file and supports CRUD operations.
 
 ## Features
 
-- Add students
-- View students
-- Search students
-- Update students
-- Delete students
-- Data saved permanently using JSON
+## Features
+
+- ➕ Add Students
+- 📋 View Students
+- 🔍 Search Students
+- ✏️ Update Student Details
+- 🗑️ Delete Students
+- 💾 Automatic JSON Data Storage
+- 🚫 Prevent Duplicate Roll Numbers
+
+## Technologies Used
 
 ## Technologies Used
 
 - Python
+- JSON
+- Git
+- GitHub
 
 ## How to Run
 
