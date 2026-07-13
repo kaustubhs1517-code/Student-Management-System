@@ -1,9 +1,12 @@
 import json
 
 
-print("=" * 50)
-print("     WELCOME TO STUDENT MANAGEMENT SYSTEM")
-print("=" * 50)
+print("\n" + "=" * 65)
+print("🎓 WELCOME TO STUDENT MANAGEMENT SYSTEM 🎓".center(65))
+print("=" * 65)
+print("📚 Add | 🔍 Search | ✏️ Update | 🗑️ Delete | 👀 View".center(65))
+print("💾 JSON Data Storage Enabled".center(65))
+print("=" * 65)
 students = []
 
 
@@ -148,40 +151,44 @@ def update_student():
 
     print("\n❌ Student not found.\n")
 
-load_students()
+def main():
 
+    load_students()
 
+    while True:
 
+        print("\n📋 MAIN MENU")
+        print("-" * 30)
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Search Student")
+        print("4. Delete Student")
+        print("5. Update Student")
+        print("6. Exit")
+        print("-" * 30)
+        choice = input("Enter your choice: ")
 
-while True:
+        if choice == "1":
+            add_student()
 
-    print("========== Student Management System ==========")
-    print("1. Add Student")
-    print("2. View Students")
-    print("3. Search Student")
-    print("4. Delete Student")
-    print("5. Update Student")
-    print("6. Exit")
+        elif choice == "2":
+            view_students()
 
-    choice = input("Enter your choice: ")
+        elif choice == "3":
+            search_student()
 
-    if choice == "1":
-        add_student()
+        elif choice == "4":
+            delete_student()
 
-    elif choice == "2":
-        view_students()
+        elif choice == "5":
+            update_student()
 
-    elif choice == "3":
-        search_student()
+        elif choice == "6":
+            print("Thank you for using the system!")
+            break
 
-    elif choice == "4":
-        delete_student()
+        else:
+            print("Invalid choice.\n")
 
-    elif choice == "5":
-        update_student()
-
-    elif choice == "6":
-        print("Thank you for using the system!")
-        break
-    else:
-        print("Invalid choice.\n")
+if __name__ == "__main__":
+    main()
